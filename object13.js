@@ -41,8 +41,8 @@ function topstudent(array){
 topstudent(newArray1);
 tonull(newArray1);
 calcavg(newArray1);
-// return topstudent(newArray1);
-return newArray1;
+return topstudent(newArray1);
+// return newArray1;
 
 }
 console.log(detalisStudent(info));
