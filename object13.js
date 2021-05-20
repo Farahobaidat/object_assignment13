@@ -3,12 +3,10 @@ function detalisStudent(strring){
     let arrayinfo=strring.split("#");
     let objc={firstName:"",lastName:"",courses:[{title:"",grade:""},{title:"",grade:""},{title:"",grade:""}],
     address:{street:"",city:"",state:""},phone:""};
-    let newArray=[],newArray2=[],newArray1=[];
-  arrayinfo.map(function sam(item){
-    newArray2=item.split(",");
-                    newArray.push(newArray2);
-                    newArray2=[];
-                });
+    let newArray=arrayinfo.map(function sam(item){
+       return item.split(",");
+                       
+                    }),newArray1=[];
 newArray.map(function sort(a){
     [objc.firstName,objc.lastName]=a;
     [,,objc.courses[0].title,objc.courses[1].title,objc.courses[2].title]=a;
@@ -38,7 +36,7 @@ function topstudent(array){
 function topstudenstring(){
     let summ=`Top Student:`;
    topstudent(newArray1).map(function summation(value){
-    m=`Full Name:${value.firstName+" "+value.lastName} \n Address:${value.address.street?value.address.street:""+" "+value.address.city?value.address.city:""+" "+value.address.state?value.address.state:""} \n Phone#:${value.phone} \n Courses: \n HTML:${value.courses[0].grade} \n CSS:${value.courses[1].grade} \n JS:${value.courses[2].grade} \n Average:${value.avg}`;
+    m=`Full Name:${value.firstName+" "+value.lastName} \n Address:${(value.address.street?value.address.street:""+" "+value.address.city?value.address.city:""+" "+value.address.state?value.address.state:"")||"N/A"} \n Phone#:${value.phone} \n Courses: \n HTML:${value.courses[0].grade} \n CSS:${value.courses[1].grade} \n JS:${value.courses[2].grade} \n Average:${value.avg}`;
 return summ+="\n"+m;
 })
     return summ;
@@ -47,9 +45,5 @@ topstudent(newArray1);
 tonull(newArray1);
 calcavg(newArray1);
  return topstudenstring();
-// return topstudent(newArray1).join("\n");
-// return newArray1;
-// return lastlast();
-// return summ;
 }
 console.log(detalisStudent(info));
